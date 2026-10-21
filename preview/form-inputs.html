@@ -1,0 +1,24 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Form inputs" subtitle="Contact form fields with focus state" viewport="700x260" -->
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:var(--bg-page);font-family:var(--font-body);color:var(--fg-1)}
+  .card{padding:18px 22px;display:flex;flex-direction:column;gap:10px}
+  .label{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:var(--fg-3);font-weight:500}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field label{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--atria-navy-900);font-weight:600}
+  .field input,.field textarea,.field select{font-family:var(--font-body);font-size:15px;padding:12px 14px;border-radius:14px;border:1.5px solid var(--atria-steel-300);background:#fff;color:var(--atria-ink);outline:none;transition:border-color var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)}
+  .field input:focus{border-color:var(--atria-navy-700);box-shadow:0 0 0 4px rgba(24,70,160,.12)}
+  .row{display:flex;gap:14px}
+  .row .field{flex:1}
+</style></head>
+<body>
+<div class="card">
+  <div class="label">Form inputs — contact form for marketing site</div>
+  <div class="row">
+    <div class="field"><label>Nombre</label><input value="María Restrepo"></div>
+    <div class="field"><label>Teléfono</label><input value="+57 300 555 0142"></div>
+  </div>
+  <div class="field"><label>Cuéntanos tu caso</label><input placeholder="Tengo deudas con tarjetas y un crédito de libranza…"></div>
+</div>
+</body></html>

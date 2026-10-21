@@ -1,0 +1,183 @@
+/* ATRIA · Social UI kit — local styles for SocialCard, HighlightWord,
+   StatusPill and the carousel host. All sizes are absolute against the
+   1080×1350 social-card canvas; the host applies CSS `transform: scale()`
+   to fit any container. */
+
+.atria-stage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 32px;
+  background: var(--atria-paper);
+  box-sizing: border-box;
+}
+
+.atria-carousel {
+  width: 1080px;
+  height: 1350px;
+  position: relative;
+  transform-origin: top center;
+}
+
+.atria-social {
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+  overflow: hidden;
+  font-family: var(--font-body);
+  color: #fff;
+}
+
+.atria-social__circuit {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(70% 50% at 95% 100%, rgba(111,160,227,0.20) 0%, transparent 60%),
+    radial-gradient(50% 35% at 5% 0%,    rgba(111,160,227,0.18) 0%, transparent 65%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.atria-social--red .atria-social__circuit {
+  background:
+    radial-gradient(70% 50% at 95% 100%, rgba(255,170,140,0.18) 0%, transparent 60%),
+    radial-gradient(50% 35% at 5% 0%,    rgba(255,170,140,0.14) 0%, transparent 65%);
+  mix-blend-mode: screen;
+}
+
+.atria-social__photo {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.atria-social__inner {
+  position: absolute;
+  inset: 60px;
+  border: 1.5px solid rgba(255,255,255,0.22);
+  border-radius: 28px;
+  pointer-events: none;
+}
+
+.atria-social__content {
+  position: absolute;
+  inset: 110px 100px;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+/* ----- Headline blocks ----- */
+.atria-headline {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+  font-size: 110px;
+  color: #fff;
+  margin: 0;
+}
+.atria-headline--md { font-size: 84px; }
+.atria-headline--sm { font-size: 66px; }
+
+.atria-supporting {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.2;
+  color: #fff;
+  margin: 14px 0 0;
+}
+.atria-supporting--italic {
+  font-style: italic;
+  font-weight: 500;
+  color: rgba(255,255,255,0.92);
+}
+
+.atria-eyebrow-lg {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  font-size: 22px;
+  color: rgba(255,255,255,0.78);
+}
+
+/* ----- Pills ----- */
+.atria-pill {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  border-radius: 60px;
+  padding: 14px 38px 14px 14px;
+  border: 1px solid rgba(255,255,255,0.35);
+  backdrop-filter: blur(6px);
+  font-family: var(--font-display);
+}
+.atria-pill--bad  { background: linear-gradient(180deg, rgba(255,255,255,0.45), rgba(255,255,255,0.18)); }
+.atria-pill--good { background: linear-gradient(180deg, rgba(214,227,247,0.78), rgba(214,227,247,0.32)); }
+
+.atria-pill__icon {
+  width: 64px; height: 64px;
+  border-radius: 9999px;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 30px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 4px 10px rgba(0,0,0,0.18);
+}
+.atria-pill--bad  .atria-pill__icon { background: linear-gradient(180deg,#F25C44,#A82516); }
+.atria-pill--good .atria-pill__icon { background: linear-gradient(180deg,#94BEE6,#00529F); }
+
+.atria-pill__label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: none;
+  color: var(--atria-navy-900);
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: 1.1;
+}
+
+/* ----- IG footer row ----- */
+.atria-ig {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  margin-top: 16px;
+}
+
+/* ----- Carousel host ----- */
+.atria-cards {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.atria-card-slot {
+  position: absolute; inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 420ms cubic-bezier(0.16,1,0.3,1);
+}
+.atria-card-slot.is-active { opacity: 1; pointer-events: auto; }
+
+.atria-nav {
+  position: fixed; left: 0; right: 0; bottom: 18px;
+  display: flex; justify-content: center; gap: 14px; z-index: 50;
+}
+.atria-nav button {
+  font-family: var(--font-display);
+  text-transform: uppercase; letter-spacing: .06em; font-weight: 600;
+  font-size: 13px;
+  padding: 10px 18px; border-radius: 9999px;
+  background: var(--atria-navy-900); color: #fff; border: 0; cursor: pointer;
+}
+.atria-nav .dots { display: flex; gap: 6px; align-items: center;
+                   padding: 0 8px; }
+.atria-nav .dots i {
+  width: 8px; height: 8px; border-radius: 9999px;
+  background: var(--atria-steel-300);
+}
+.atria-nav .dots i.on { background: var(--atria-navy-900); width: 22px; }

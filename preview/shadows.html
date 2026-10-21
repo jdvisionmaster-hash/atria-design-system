@@ -1,0 +1,21 @@
+<!doctype html>
+<!-- @dsCard group="Spacing" name="Shadow / elevation" subtitle="sm · md · lg · warn (red-tinted)" viewport="700x160" -->
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:var(--bg-page);font-family:var(--font-body);color:var(--fg-1)}
+  .card{padding:18px 22px;display:flex;flex-direction:column;gap:14px}
+  .label{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:var(--fg-3);font-weight:500}
+  .row{display:flex;gap:24px;align-items:flex-end}
+  .box{width:80px;height:80px;background:#fff;border-radius:16px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px;font-size:11px;color:var(--fg-2);font-family:var(--font-body)}
+</style></head>
+<body>
+<div class="card">
+  <div class="label">Shadow / elevation</div>
+  <div class="row">
+    <div class="box" style="box-shadow:var(--shadow-sm)">sm</div>
+    <div class="box" style="box-shadow:var(--shadow-md)">md</div>
+    <div class="box" style="box-shadow:var(--shadow-lg)">lg</div>
+    <div class="box" style="box-shadow:var(--shadow-warn);background:var(--atria-red-500);color:#fff">warn</div>
+  </div>
+</div>
+</body></html>

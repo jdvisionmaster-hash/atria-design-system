@@ -1,0 +1,188 @@
+<!doctype html>
+<!-- @dsCard group="UI Kit — Social" name="UI kit · Social carousel" subtitle="Working recreation of 5 carousel slides" viewport="900x900" -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>ATRIA · Social UI kit</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<link rel="stylesheet" href="./social-kit.css">
+<style>
+  html, body { margin: 0; }
+  body { background: var(--atria-paper); overflow-x: hidden; }
+  .scale-host { display: flex; justify-content: center; padding: 24px 0 64px; }
+  /* The carousel is a fixed 1080×1350; we scale it down to fit common
+     viewport widths for the demo. */
+  #scale { transform-origin: top center; }
+</style>
+</head>
+<body data-screen-label="ATRIA social UI kit">
+
+<div class="scale-host"><div id="scale"><div class="atria-carousel"><div class="atria-cards" id="cards"></div></div></div></div>
+
+<div class="atria-nav">
+  <button id="prev">◂ Anterior</button>
+  <div class="dots" id="dots"></div>
+  <button id="next">Siguiente ▸</button>
+</div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="./SocialCard.jsx"></script>
+<script type="text/babel" src="./HighlightWord.jsx"></script>
+<script type="text/babel" src="./StatusPill.jsx"></script>
+<script type="text/babel" src="./IGFooter.jsx"></script>
+
+<script type="text/babel">
+const { useState, useEffect } = React;
+const H = HighlightWord;
+
+function Slide1() {
+  return (
+    <SocialCard tone="navy">
+      <h1 className="atria-headline">
+        La <br/>insolvencia<br/>
+        <span style={{color:"#E8412A"}}>NO ES DEJAR<br/>DE PAGAR</span>
+      </h1>
+      <p className="atria-supporting" style={{marginTop:36}}>
+        y usarla <H tone="underline">MAL</H> puede salirte<br/>
+        <span style={{color:"#E8412A", fontFamily:"var(--font-display)", textTransform:"uppercase", fontWeight:700, fontSize:64, letterSpacing:"-.01em"}}>MUY CARO…</span>
+      </p>
+    </SocialCard>
+  );
+}
+
+function Slide2() {
+  return (
+    <SocialCard tone="split">
+      <h1 className="atria-headline atria-headline--md">EN COLOMBIA</h1>
+      <p className="atria-supporting" style={{marginTop:8}}>la ley parte de algo clave:</p>
+      <p className="atria-supporting" style={{marginTop:80}}>Se presume que actúas de</p>
+      <h2 className="atria-headline atria-headline--md" style={{marginTop:4}}>BUENA FE</h2>
+      <p className="atria-supporting atria-supporting--italic" style={{marginTop:12}}>Pero… no siempre es así</p>
+    </SocialCard>
+  );
+}
+
+function Slide3() {
+  return (
+    <SocialCard tone="red">
+      <h1 className="atria-headline atria-headline--md">¿QUÉ ES<br/>ACTUAR DE<br/>MALA FE?</h1>
+      <div style={{display:"flex", flexDirection:"column", gap:30, marginTop:60, maxWidth:560}}>
+        <StatusPill variant="bad">Engañar</StatusPill>
+        <StatusPill variant="bad">Ocultar</StatusPill>
+        <StatusPill variant="bad">Manipular el proceso</StatusPill>
+      </div>
+      <p className="atria-supporting atria-supporting--italic" style={{marginTop:36}}>→ para evitar<br/>pagar lo que debes</p>
+    </SocialCard>
+  );
+}
+
+function Slide4() {
+  return (
+    <SocialCard tone="navy">
+      <p className="atria-supporting" style={{marginTop:60}}>La insolvencia</p>
+      <h1 className="atria-headline" style={{marginTop:6}}>
+        <H tone="redSoft" style={{padding:"0 .25em"}}>NO</H> ES UN<br/>
+        <H tone="redSoft" style={{padding:"0 .25em"}}>ESCAPE</H>
+      </h1>
+      <p className="atria-supporting" style={{marginTop:60}}>Es una</p>
+      <h2 className="atria-headline atria-headline--md" style={{marginTop:6, color:"#D4E5F5"}}>HERRAMIENTA<br/>LEGAL</h2>
+      <p className="atria-supporting" style={{marginTop:18}}>para empezar de nuevo</p>
+      <p className="atria-supporting atria-supporting--italic" style={{marginTop:80}}>→ Pero solo funciona<br/>si juegas limpio</p>
+    </SocialCard>
+  );
+}
+
+function Slide5() {
+  return (
+    <SocialCard tone="navy">
+      <h1 className="atria-headline atria-headline--md">
+        ¿QUIERES<br/>REORGANIZAR<br/>TU VIDA<br/>FINANCIERA<br/>LEGALMENTE?
+      </h1>
+      <p className="atria-supporting" style={{marginTop:36}}>Comenta:</p>
+      <div style={{marginTop:14}}>
+        <span style={{
+          display:"inline-block",
+          border:"3px solid var(--atria-gold-500)",
+          borderRadius:"9999px",
+          padding:"14px 36px",
+          color:"var(--atria-gold-500)",
+          fontFamily:"var(--font-display)",
+          textTransform:"uppercase",
+          fontWeight:700,
+          fontSize:60,
+          letterSpacing:".02em"
+        }}>"INSOLVENCIA"</span>
+      </div>
+      <p className="atria-supporting" style={{marginTop:32}}>o escríbenos por <b>mensaje directo DM</b></p>
+      <p className="atria-eyebrow-lg" style={{marginTop:48, color:"rgba(255,255,255,0.55)", fontSize:42, fontWeight:700}}>TE AYUDAMOS<br/>CON TU CASO</p>
+      <div style={{marginTop:24}}><IGFooter/></div>
+    </SocialCard>
+  );
+}
+
+const slides = [Slide1, Slide2, Slide3, Slide4, Slide5];
+
+function App() {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    // scale to fit
+    const fit = () => {
+      const el = document.getElementById("scale");
+      const w = Math.min(window.innerWidth - 48, 720);
+      el.style.transform = `scale(${w / 1080})`;
+      el.style.width = `1080px`;
+      // Keep document height tidy.
+      const h = 1350 * (w / 1080);
+      el.style.height = `${h}px`;
+      document.body.style.minHeight = `${h + 160}px`;
+    };
+    fit();
+    window.addEventListener("resize", fit);
+    return () => window.removeEventListener("resize", fit);
+  }, []);
+  useEffect(() => {
+    const onKey = e => {
+      if (e.key === "ArrowRight") setI(v => Math.min(slides.length - 1, v + 1));
+      if (e.key === "ArrowLeft")  setI(v => Math.max(0, v - 1));
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+  document.getElementById("prev").onclick = () => setI(v => Math.max(0, v - 1));
+  document.getElementById("next").onclick = () => setI(v => Math.min(slides.length - 1, v + 1));
+  return (
+    <>
+      {slides.map((S, idx) => (
+        <div key={idx} className={"atria-card-slot " + (idx === i ? "is-active" : "")} data-screen-label={`Social ${String(idx+1).padStart(2,"0")}`}>
+          <S/>
+        </div>
+      ))}
+    </>
+  );
+}
+
+// Dots
+function Dots() {
+  const [i, setI] = useState(0);
+  // listen via storage-less polling on the active slot
+  useEffect(() => {
+    const t = setInterval(() => {
+      const a = document.querySelector(".atria-card-slot.is-active");
+      if (!a) return;
+      const idx = [...document.querySelectorAll(".atria-card-slot")].indexOf(a);
+      setI(idx);
+    }, 100);
+    return () => clearInterval(t);
+  }, []);
+  return (
+    <>{slides.map((_, idx) => <i key={idx} className={idx === i ? "on" : ""}/>)}</>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("cards")).render(<App/>);
+ReactDOM.createRoot(document.getElementById("dots")).render(<Dots/>);
+</script>
+</body></html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Buttons" subtitle="Red primary, navy, ghost, gold outline" viewport="700x150" -->
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:var(--bg-page);font-family:var(--font-body);color:var(--fg-1)}
+  .card{padding:18px 22px;display:flex;flex-direction:column;gap:14px}
+  .label{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:var(--fg-3);font-weight:500}
+  .row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .btn{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.05em;font-weight:600;font-size:14px;padding:14px 26px;border-radius:9999px;border:0;cursor:pointer;transition:transform var(--dur-base) var(--ease-out),background var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)}
+  .btn-primary{background:var(--atria-red-500);color:#fff;box-shadow:var(--shadow-warn)}
+  .btn-primary:hover{background:var(--atria-red-400);transform:translateY(-2px)}
+  .btn-navy{background:var(--atria-navy-900);color:#fff;box-shadow:var(--shadow-md)}
+  .btn-navy:hover{background:var(--atria-navy-700);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--atria-navy-900);border:2px solid var(--atria-navy-900)}
+  .btn-ghost:hover{background:var(--atria-navy-900);color:#fff}
+  .btn-gold{background:transparent;color:var(--atria-gold-700);border:2px solid var(--atria-gold-500)}
+</style></head>
+<body>
+<div class="card">
+  <div class="label">Buttons — primary CTA always red on light/navy, navy on red surfaces</div>
+  <div class="row">
+    <button class="btn btn-primary">Te ayudamos →</button>
+    <button class="btn btn-navy">Agenda una asesoría</button>
+    <button class="btn btn-ghost">Más información</button>
+    <button class="btn btn-gold">"INSOLVENCIA"</button>
+  </div>
+</div>
+</body></html>

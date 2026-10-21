@@ -1,0 +1,279 @@
+/* =========================================================================
+   ATRIA Design System — Core Tokens
+   ATRIA Consultoría Legal y Financiera S.A.S
+   Colombian legal consultancy specializing in insolvency processes.
+
+   Two product surfaces:
+     1. Social-media carousels (Instagram / 1080×1350)
+     2. Marketing site for the practice (recreation)
+
+   The visual language is built on a tight 4-color palette:
+     navy  → trust, legality, "the system"
+     red   → urgency, warnings, "mala fe" (bad faith), CTAs
+     gold  → premium, official seals, badge accent
+     steel → wordmark grey, supporting copy on light
+
+   Typography pairs:
+     Oswald (condensed grotesque) for ALL headlines, in UPPERCASE.
+     Hong Kong (humanist sans) for body, sub-heads, and the few sentence-cased
+     supporting lines.
+
+   ========================================================================= */
+
+/* --- Webfonts ------------------------------------------------------------ */
+
+@font-face {
+  font-family: "Oswald";
+  src: url("./fonts/Oswald-Variable.ttf") format("truetype-variations");
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Hong Kong";
+  src: url("./fonts/HongKong-Thin.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Hong Kong";
+  src: url("./fonts/HongKong-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Hong Kong";
+  src: url("./fonts/HongKong-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Hong Kong";
+  src: url("./fonts/HongKong-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Hong Kong";
+  src: url("./fonts/HongKong-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Hong Kong";
+  src: url("./fonts/HongKong-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Hong Kong";
+  src: url("./fonts/HongKong-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Hong Kong";
+  src: url("./fonts/HongKong-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- Tokens -------------------------------------------------------------- */
+
+:root {
+  /* ----- Brand colors -----
+     Source of truth: the official ATRIA brand-palette sheet
+     (see assets/brand-palette-reference.png). Seven anchor values;
+     the *-100 / *-300 / *-700 / *-950 steps around each anchor are
+     derivative tints/shades tuned for gradients and hover states.    */
+
+  /* Navy — the dominant brand color, used on ~70% of surfaces.
+     Anchor: #003173  (C100 M85 Y5 K30)                              */
+  --atria-navy-950: #001A3F;        /* darker, for gradient deep stop      */
+  --atria-navy-900: #003173;        /* ★ PRIMARY NAVY (brand sheet)        */
+  --atria-navy-800: #003F8C;        /* mid step toward link blue           */
+  --atria-navy-700: #00529F;        /* ★ link / interactive (brand sheet)  */
+  --atria-navy-500: #2E78C0;        /* hover lift on link blue             */
+  --atria-navy-300: #94BEE6;        /* ★ light accent blue (brand sheet)   */
+  --atria-navy-100: #D4E5F5;        /* tinted pill background on navy      */
+
+  /* Red — warnings, "mala fe", CTAs, alert highlights.
+     Anchor: #E8412A  (C0 M85 Y87 K0)                                 */
+  --atria-red-900:  #A82516;        /* deep red, pill borders              */
+  --atria-red-700:  #C8311F;        /* warning red                         */
+  --atria-red-500:  #E8412A;        /* ★ PRIMARY RED (brand sheet)         */
+  --atria-red-400:  #F25C44;        /* energetic CTA red, hover            */
+  --atria-red-200:  #F9C5BA;        /* soft red pill background            */
+
+  /* Gold — premium / official seal accent. Rare; reserved.
+     Anchor: #B0874E  (C26 M42 Y72 K15)                               */
+  --atria-gold-700: #8A6738;
+  --atria-gold-500: #B0874E;        /* ★ GOLD (brand sheet)                */
+  --atria-gold-300: #D2B181;
+
+  /* Steel — wordmark grey + neutral body on light backgrounds.
+     Anchors: #687687 (C61 M43 Y32 K15)  +  #BABDC6 (C31 M22 Y17 K0)  */
+  --atria-steel-900: #2A3340;
+  --atria-steel-700: #4D5969;
+  --atria-steel-500: #687687;       /* ★ STEEL (brand sheet)               */
+  --atria-steel-300: #BABDC6;       /* ★ light steel (brand sheet)         */
+  --atria-steel-100: #E5E7EC;
+
+  /* Surfaces */
+  --atria-white:    #FFFFFF;
+  --atria-paper:    #F7F8FA;        /* off-white page background            */
+  --atria-ink:      #0E1422;        /* body text on light                   */
+
+  /* ----- Semantic color roles ----- */
+
+  --fg-1:           var(--atria-ink);       /* primary text on light        */
+  --fg-2:           var(--atria-steel-700); /* secondary text on light      */
+  --fg-3:           var(--atria-steel-500); /* tertiary / captions          */
+  --fg-on-navy-1:   #FFFFFF;
+  --fg-on-navy-2:   rgba(255,255,255,0.72);
+  --fg-on-navy-3:   rgba(255,255,255,0.45);
+  --fg-on-red-1:    #FFFFFF;
+  --fg-on-red-2:    rgba(255,255,255,0.78);
+
+  --bg-page:        var(--atria-paper);
+  --bg-surface:     var(--atria-white);
+  --bg-navy:        var(--atria-navy-900);
+  --bg-navy-deep:   var(--atria-navy-950);
+
+  --accent-warn:    var(--atria-red-500);
+  --accent-cta:     var(--atria-red-400);
+  --accent-premium: var(--atria-gold-500);
+  --accent-link:    var(--atria-navy-500);
+
+  --border-soft:    rgba(255,255,255,0.18); /* the signature inner frame    */
+  --border-on-light: rgba(14,20,34,0.10);
+
+  /* ----- Signature gradients -----
+     Built on the brand anchors only. The deeper stops are computed
+     darker tints of #003173 / #E8412A so the gradient stays in family. */
+  --grad-navy:      linear-gradient(180deg, #00529F 0%, #003173 55%, #001A3F 100%);
+  --grad-red:       linear-gradient(180deg, #F25C44 0%, #E8412A 55%, #A82516 100%);
+  --grad-split:     linear-gradient(95deg,  #A82516 0%, #6A1A3C 45%, #003173 100%);
+  --grad-radial-navy: radial-gradient(120% 90% at 50% 10%, #00529F 0%, #003173 60%, #001A3F 100%);
+  --grad-radial-red:  radial-gradient(120% 90% at 50% 10%, #F47862 0%, #E8412A 55%, #A82516 100%);
+
+  /* ----- Typography ----- */
+  --font-display:   "Oswald", "Arial Narrow", system-ui, sans-serif;
+  --font-body:      "Hong Kong", "Inter", system-ui, sans-serif;
+
+  /* Heading sizing — print/social heavy; web should clamp() these down. */
+  --fs-display-xl:  96px;   /* hero headlines on social cards     */
+  --fs-display-lg:  72px;
+  --fs-display-md:  56px;
+  --fs-h1:          44px;
+  --fs-h2:          32px;
+  --fs-h3:          24px;
+  --fs-body-lg:     20px;
+  --fs-body:        16px;
+  --fs-caption:     13px;
+  --fs-micro:       11px;
+
+  --lh-display:     0.95;
+  --lh-heading:     1.1;
+  --lh-body:        1.45;
+
+  --ls-display:     -0.01em;        /* slight optical tightening on caps  */
+  --ls-eyebrow:     0.12em;         /* uppercase eyebrow tracking         */
+
+  /* ----- Shape, spacing, motion ----- */
+  --radius-xs:      6px;
+  --radius-sm:      10px;
+  --radius-md:      16px;
+  --radius-lg:      24px;
+  --radius-xl:      36px;          /* signature pill radius for chips    */
+  --radius-pill:    9999px;
+  --radius-card:    28px;          /* social-card inner-frame radius     */
+
+  --space-1:        4px;
+  --space-2:        8px;
+  --space-3:        12px;
+  --space-4:        16px;
+  --space-5:        24px;
+  --space-6:        32px;
+  --space-7:        48px;
+  --space-8:        64px;
+  --space-9:        96px;
+
+  --shadow-sm:      0 1px 2px rgba(7,25,58,0.10);
+  --shadow-md:      0 8px 24px -8px rgba(7,25,58,0.25);
+  --shadow-lg:      0 24px 60px -20px rgba(7,25,58,0.35);
+  --shadow-warn:    0 12px 28px -10px rgba(239,58,42,0.45);
+
+  --ease-out:       cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:    cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast:       140ms;
+  --dur-base:       240ms;
+  --dur-slow:       420ms;
+}
+
+/* --- Base type roles ----------------------------------------------------- */
+
+.atria-display, .atria-h1, .atria-h2, .atria-h3, .atria-eyebrow {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: var(--ls-display);
+  line-height: var(--lh-heading);
+  text-transform: uppercase;
+}
+
+.atria-display    { font-size: var(--fs-display-lg); line-height: var(--lh-display); }
+.atria-display-xl { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--fs-display-xl); line-height: var(--lh-display); letter-spacing: var(--ls-display); }
+.atria-h1         { font-size: var(--fs-h1); }
+.atria-h2         { font-size: var(--fs-h2); }
+.atria-h3         { font-size: var(--fs-h3); }
+
+.atria-eyebrow {
+  font-size: var(--fs-caption);
+  letter-spacing: var(--ls-eyebrow);
+  font-weight: 500;
+}
+
+.atria-body, .atria-body-lg, .atria-caption {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.atria-body-lg { font-size: var(--fs-body-lg); }
+.atria-body    { font-size: var(--fs-body); }
+.atria-caption { font-size: var(--fs-caption); color: var(--fg-3); }
+
+.atria-sub-italic {                  /* the recurring italic "follow-up" line */
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 500;
+  font-size: var(--fs-body-lg);
+}
+
+/* The recurring "highlight word" treatment on social cards: a colored pill
+   block around an inline word. */
+.atria-highlight-red,
+.atria-highlight-navy,
+.atria-highlight-gold {
+  display: inline-block;
+  padding: 0.05em 0.35em 0.1em;
+  border-radius: 8px;
+  color: #fff;
+  line-height: 1;
+}
+.atria-highlight-red  { background: var(--atria-red-500); }
+.atria-highlight-navy { background: var(--atria-navy-900); }
+.atria-highlight-gold { background: transparent; border: 2px solid var(--atria-gold-500); color: var(--atria-gold-500); }
+
+/* The recurring underline-as-emphasis used on key inline words. */
+.atria-underline { text-decoration: underline; text-decoration-thickness: 0.06em; text-underline-offset: 0.12em; }
